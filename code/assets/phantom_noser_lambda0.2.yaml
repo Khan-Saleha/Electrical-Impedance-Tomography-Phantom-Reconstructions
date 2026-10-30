@@ -1,0 +1,25 @@
+preprocessing:
+  calibration:
+    method: 'linear'
+    coefficients: 'based_on_measurement_settings'
+
+eit:
+  mesh:
+    shape: 'No'
+    background_conductivity: 1
+  measurement:
+    parser: 'fmmu'
+    el_dist: 1
+    step: 1
+    constant_current: True
+  electrodes:
+    n_el: 16
+    # 13, not 14: with 14 the blobs sat ~23 deg clockwise of the clock marks.
+    rotate_el_clockwise: 13
+    reverse_electrodes_orientation: True
+  reconstruction:
+    method: 'jac'
+    regularization: 'lm'
+    lambda: 0.2
+    p: 1.0
+    prior_alpha: 0.0
